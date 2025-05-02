@@ -26,14 +26,23 @@ def edit_position(number_position):
     pass
 
 
-# функция для сериализации данных в файл
+# функция для записи данных в файл
 def add_file(number, name, price, number_rack, number_cell):
-    pass
+    data = number + ' ' + name + ' ' + price + ' ' + number_rack + ' ' + number_cell
+    with open ("data.txt", "a") as file:
+        file.write(data + '\n')
 
 
-# функция для десериализации данных из файла
+# функция для ивзлечения данных из файла
 def load_from_file():
-    pass
+    data = []
+    with open("data.txt", "r") as file:
+        line = file.readline()
+        while line:
+            data_temp_line = line.split()
+            data.append(data_temp_line)
+            line = file.readline()
+    return data
 
 
 if __name__ == '__main__':
